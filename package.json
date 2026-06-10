@@ -1,0 +1,33 @@
+{
+  "name": "parcial-2-con-val",
+  "version": "1.0.0",
+  "description": "Proyecto base para el trabajo final de Programacion 3. Es una aplicacion web completa con frontend, backend, base de datos y servicios auxiliares, todo orquestado con Docker Compose.",
+  "homepage": "https://github.com/valenvitale/Proyecto-Final-Prog3#readme",
+  "bugs": {
+    "url": "https://github.com/valenvitale/Proyecto-Final-Prog3/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/valenvitale/Proyecto-Final-Prog3.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Tests OK\"",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "eslint-config-prettier": "^10.1.8",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^10.4.1",
+    "husky": "^9.1.7",
+    "nodemon": "^3.1.14",
+    "standard": "^17.1.2"
+  }
+}
