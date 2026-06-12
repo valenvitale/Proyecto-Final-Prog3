@@ -3,11 +3,11 @@ require('dotenv').config();
 
 module.exports = {
   development: {
-    username: process.env.DB_USER || 'app_user',
-    password: process.env.DB_PASSWORD || 'app_password',
-    database: process.env.DB_NAME || 'app_database',
-    host: process.env.DB_HOST || 'localhost',
-    port: process.env.DB_PORT || 5432,
+    username: process.env.PGUSER || process.env.DB_USER || 'app_user',
+    password: process.env.PGPASSWORD || process.env.DB_PASSWORD || 'app_password',
+    database: process.env.PGDATABASE || process.env.DB_NAME || 'app_database',
+    host: process.env.PGHOST || process.env.DB_HOST || 'localhost',
+    port: process.env.PGPORT || process.env.DB_PORT || 5432,
     dialect: 'postgres',
     logging: console.log,
     pool: {
@@ -15,23 +15,29 @@ module.exports = {
       min: 0,
       acquire: 30000,
       idle: 10000
+    },
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
     }
   },
   test: {
-    username: process.env.DB_USER || 'app_user',
-    password: process.env.DB_PASSWORD || 'app_password',
-    database: process.env.DB_NAME + '_test' || 'app_database_test',
-    host: process.env.DB_HOST || 'localhost',
-    port: process.env.DB_PORT || 5432,
+    username: process.env.PGUSER || process.env.DB_USER || 'app_user',
+    password: process.env.PGPASSWORD || process.env.DB_PASSWORD || 'app_password',
+    database: process.env.PGDATABASE || process.env.DB_NAME + '_test' || 'app_database_test',
+    host: process.env.PGHOST || process.env.DB_HOST || 'localhost',
+    port: process.env.PGPORT || process.env.DB_PORT || 5432,
     dialect: 'postgres',
     logging: false
   },
   production: {
-    username: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
+    username: process.env.PGUSER,
+    password: process.env.PGPASSWORD,
+    database: process.env.PGDATABASE,
+    host: process.env.PGHOST,
+    port: process.env.PGPORT,
     dialect: 'postgres',
     logging: false,
     pool: {
