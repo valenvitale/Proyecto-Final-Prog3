@@ -1,4 +1,4 @@
-const { Videojuego } = require("../models/videojuego.model");
+const Videojuego = require("../models/videojuego.model");
 
 // Crear videojuego
 const crearVideojuego = async (req, res) => {

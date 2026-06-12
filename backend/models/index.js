@@ -1,6 +1,7 @@
 // backend/models/index.js
 const { Sequelize } = require('sequelize');
 const config = require('../config/database');
+const Videojuego = require('./videojuego.model');
 
 const env = process.env.NODE_ENV || 'development';
 const dbConfig = config[env];
@@ -25,5 +26,6 @@ const User = UserModel(sequelize);
 module.exports = {
   sequelize,
   Sequelize,
-  User
+  User,
+  Videojuego
 };
