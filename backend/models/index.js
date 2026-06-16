@@ -20,12 +20,23 @@ const sequelize = new Sequelize(
   }
 );
 
+const verificarConexion = async () => {
+  try {
+    await sequelize.authenticate();
+    console.log(`Conexión exitosa a las tablas en: ${dbConfig.host}`);
+  } catch (error) {
+    console.error('Error al conectar a la base de datos:', error.message);
+  }
+};
+verifficarConexion();
+
 const UserModel = require('./User');
 const User = UserModel(sequelize);
 
 module.exports = {
   sequelize,
   Sequelize,
+  verificarConexion,
   User,
   Videojuego
 };
